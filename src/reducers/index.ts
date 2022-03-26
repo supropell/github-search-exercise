@@ -1,12 +1,12 @@
-import { IGitHubSearchApi } from '../api/types';
+import { ISuccessResponse } from '../api/types';
 import { SET_DATA, STAR_REPOSITORY } from '../actionCreators';
 
-interface IAppState {
-    rawData: IGitHubSearchApi | null;
+export interface IAppState {
+    rawData: ISuccessResponse | null;
     starred: number[];
 }
 
-const initialState: IAppState = {
+export const initialState: IAppState = {
     rawData: null,
     starred: [],
 }

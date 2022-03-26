@@ -9,8 +9,23 @@ export interface IRepository {
     stargazers_count: number;
 }
 
-export interface IGitHubSearchApi {
+export interface ISuccessResponse {
     total_count: number;
     incomplete_results: boolean;
     items: IRepository[];
 }
+
+interface IApiError {
+    message: string;
+    resource: string;
+    field: string;
+    code: string;
+}
+
+export interface IFailResponse {
+    message: string;
+    errors: IApiError[];
+    documentation_url: string;
+}
+
+export type IGitHubSearchApi = ISuccessResponse | IFailResponse;
