@@ -1,5 +1,6 @@
 import format from 'date-fns/format'
 import addWeeks from 'date-fns/addWeeks'
+
 import { setData, setDataLoaded } from '../actionCreators';
 
 type Dispatch = (action: Record<string, any>) => void
@@ -29,7 +30,7 @@ export const fetchData = async (dispatch: Dispatch) => {
         dispatch(setData(data));
         dispatch(setDataLoaded());
     } catch (e) {
-    //    TODO: process the error
+        // TODO: process the error
         console.log(e);
     }
 }

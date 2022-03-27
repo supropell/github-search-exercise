@@ -1,12 +1,18 @@
 import React, { useReducer, useEffect } from 'react';
-import reducer, { initialState } from './reducers'
+
+// data entities
 import { fetchData } from './api';
-import styles from './App.module.scss';
-import { selectAllItems, selectCalculatedStarredItems } from './selectors';
 import { switchRepositoryList, toggleStarRepository } from './actionCreators';
-import Loader from './components/Loader';
+import reducer, { initialState } from './reducers'
+import { selectAllItems, selectCalculatedStarredItems } from './selectors';
+
+// views
 import ContentWrapper from './components/ContentWrapper';
+import Loader from './components/Loader';
 import List from './components/List';
+
+// styles
+import styles from './App.module.scss';
 
 const App = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
@@ -15,7 +21,6 @@ const App = () => {
         fetchData(dispatch);
     }, []);
 
-    console.log(state);
     const allItems = selectAllItems(state);
     const starredItems = selectCalculatedStarredItems(state);
 
