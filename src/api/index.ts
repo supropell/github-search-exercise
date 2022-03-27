@@ -1,9 +1,15 @@
+import format from 'date-fns/format'
+import addWeeks from 'date-fns/addWeeks'
 import { setData } from '../actionCreators';
 
 type Dispatch = (action: Record<string, any>) => void
 
 export const fetchData = async (dispatch: Dispatch) => {
-    const url = 'https://api.github.com/search/repositories?q=created:%3E2022-03-25&sort=stars&order=desc'
+    const startSearchDate = format(
+        addWeeks(new Date(), -1),
+        'yyyy-MM-dd'
+    );
+    const url = `https://api.github.com/search/repositories?q=created:%3E${startSearchDate}&sort=stars&order=desc`
 
     try {
         const response = await fetch(url, {
