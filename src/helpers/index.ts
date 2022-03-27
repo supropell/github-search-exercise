@@ -9,7 +9,7 @@ export const calcItemPredicate = ({
 }: IRepository) => ({
     id,
     name,
-    html_url,
+    url: html_url,
     language,
-    stargazers_count,
+    starsCount: stargazers_count,
 })
