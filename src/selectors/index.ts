@@ -1,21 +1,21 @@
 import { IAppState } from '../reducers';
 import { createSelector } from 'reselect';
+import { calcItemPredicate } from '../helpers';
 
-const selectRawData = (state: IAppState) => state.rawData;
+const selectLoadedItems = (state: IAppState) => state.rawData?.items || [];
+const selectStarredItems = (state: IAppState) => state.starred;
 
-export const selectItems = createSelector(
-    selectRawData,
-    data => data?.items.map(({
-        id,
-        name,
-        html_url,
-        language,
-        stargazers_count
-    }) => ({
-        id,
-        name,
-        html_url,
-        language,
-        stargazers_count,
-    })) || []
+export const selectAllItems = createSelector(
+    selectLoadedItems,
+    items => items.map(calcItemPredicate)
+);
+
+export const selectCalculatedStarredItems = createSelector(
+    selectLoadedItems,
+    selectStarredItems,
+    (items, starred) => {
+        const filteredItems = items.filter(({ id }) => starred.includes(id));
+
+        return filteredItems.map(calcItemPredicate);
+    }
 );
