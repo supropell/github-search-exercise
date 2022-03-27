@@ -12,6 +12,7 @@ const List: React.FunctionComponent<IProps> = ({ items, handleClickStar }) => (
             <ListItemView
                 item={item}
                 onStarClick={handleClickStar}
+                key={item.id}
             />
         ))}
     </ul>

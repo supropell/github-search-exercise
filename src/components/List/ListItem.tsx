@@ -23,7 +23,7 @@ const ListItemView: React.FunctionComponent<IProps> = ({ item, onStarClick }) =>
     } = item;
 
     return (
-        <li key={id}>
+        <li>
             <div>{name}</div>
             <div>
                 <a href={url} target="_blank" rel="noreferrer">open in new tab</a>
