@@ -1,0 +1,10 @@
+@import "src/styles/mixins";
+@import "../../styles/pallet";
+
+.button {
+  @include niceButton()
+}
+
+.content {
+  padding: 8px 0;
+}

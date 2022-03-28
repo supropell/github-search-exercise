@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './contentWrapper.module.scss';
 
 interface IProps {
     toggleListViewHandler: () => void;
@@ -16,12 +17,18 @@ const ContentWrapper: React.FunctionComponent<IProps> = ({
             <h2>Check the result</h2>
 
             <div>
-                <button type="button" onClick={toggleListViewHandler}>
+                <button
+                    type="button"
+                    onClick={toggleListViewHandler}
+                    className={styles.button}
+                >
                     {isActiveAllList ? 'Switch to starred' : 'Switch to all'}
                 </button>
             </div>
 
-            {children}
+            <div className={styles.content}>
+                {children}
+            </div>
         </section>
     </div>
 );
