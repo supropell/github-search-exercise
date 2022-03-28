@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './listItem.module.scss';
 
 export type ListItem = {
     id: number;
@@ -23,14 +24,20 @@ const ListItemView: React.FunctionComponent<IProps> = ({ item, onStarClick }) =>
     } = item;
 
     return (
-        <li>
-            <div>{name}</div>
-            <div>
-                <a href={url} target="_blank" rel="noreferrer">open in new tab</a>
+        <li className={styles.root}>
+            <div className={styles.name}>{name}</div>
+            <div className={styles.link}>
+                <a href={url} target="_blank" rel="noreferrer">repository link</a>
             </div>
-            <div>{language}</div>
-            <div>{starsCount} stars</div>
-            <button type="button" onClick={onStarClick(id)}>Star it!</button>
+            <div className={styles.language}>{language}</div>
+            <div className={styles.starsCount}>{starsCount} stars</div>
+            <button
+                type="button"
+                onClick={onStarClick(id)}
+                className={styles.button}
+            >
+                Star it!
+            </button>
         </li>
     );
 };

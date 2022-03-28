@@ -1,0 +1,52 @@
+@import "pallet";
+
+@mixin resetUl {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin resetLi {
+  margin:0;
+  padding: 0;
+  text-indent: 0;
+  list-style-type: none;
+}
+
+@mixin niceButton($isPrimary : false) {
+  display: inline-block;
+  border: none;
+  padding: 8px 16px;
+  margin: 0;
+  text-decoration: none;
+
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: 6px;
+
+  @if($isPrimary) {
+    background: $green;
+    color: $white;
+  } @else {
+    background: $dark;
+    color: $gray;
+  }
+
+  transition: .2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition-property: color,background-color;
+
+  &:hover {
+    background: $lightGreen;
+    @if($isPrimary) {
+      background: $lightGreen;
+    } @else {
+      background: $navy;
+      color: $darkGray;
+    }
+  }
+}

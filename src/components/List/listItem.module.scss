@@ -1,0 +1,55 @@
+@import "src/styles/mixins";
+@import "../../styles/pallet";
+
+@mixin listBlockBase {
+  margin: 4px 0;
+  padding: 8px 16px;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: right;
+}
+
+.root {
+  @include resetLi;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  background: $white;
+
+  &:nth-child(even) {
+    background: $light-gray;
+  }
+}
+
+.name {
+  @include listBlockBase;
+
+  flex: 1 1 70px;
+  text-overflow: clip;
+}
+
+.link {
+  @include listBlockBase;
+
+  flex: 1 1 70px;
+  text-decoration: none;
+  color: $blue
+}
+
+.language {
+  @include listBlockBase;
+
+  flex: 1 1 70px;
+}
+
+.starsCount {
+  @include listBlockBase;
+
+  flex: 0 0 70px;
+}
+
+.button {
+  @include niceButton(true);
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './list.module.scss';
 
 import ListItemView, { ListItem } from './ListItem';
 
@@ -8,7 +9,7 @@ interface IProps {
 }
 
 const List: React.FunctionComponent<IProps> = ({ items, handleClickStar }) => (
-    <ul>
+    <ul className={styles.root}>
         {items.map(item => (
             <ListItemView
                 item={item}
