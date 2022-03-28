@@ -7,6 +7,7 @@ export type ListItem = {
     url: string;
     language: string;
     starsCount: number;
+    selected: boolean;
 }
 
 interface IProps {
@@ -20,7 +21,8 @@ const ListItemView: React.FunctionComponent<IProps> = ({ item, onStarClick }) =>
         name,
         url,
         language,
-        starsCount
+        starsCount,
+        selected,
     } = item;
 
     return (
@@ -36,7 +38,7 @@ const ListItemView: React.FunctionComponent<IProps> = ({ item, onStarClick }) =>
                 onClick={onStarClick(id)}
                 className={styles.button}
             >
-                Star it!
+                {!selected ? 'Star it!' : 'Remove it'}
             </button>
         </li>
     );

@@ -26,7 +26,7 @@
 .name {
   @include listBlockBase;
 
-  width: 100px;
+  width: 80px;
   text-align: left;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -54,4 +54,6 @@
 
 .button {
   @include niceButton(true);
+
+  flex: 0 0 100px
 }
